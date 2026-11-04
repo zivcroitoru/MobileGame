@@ -29,6 +29,12 @@ Players earn **Fish Treats / Bones** during levels and via level completion bonu
 
 * **Crunchy elements:** Satisfying arcade sound effects upon launching and landing, vibrant particle bursts (hearts/food crumbs), and subtle haptic feedback on successful catches.
 
+## Main Reference
+
+[Gameplay Reference – YouTube](https://youtu.be/L4nJR-gLEaM)
+
+This video serves as the main gameplay reference for Paw Path. The goal is to build on the core mechanic with our own pet theme, level design, and progression systems.
+
 ## Scope check
 
 * [x] Hybrid-casual: simple physics-swipe core + cosmetic meta layer
