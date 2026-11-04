@@ -1,37 +1,37 @@
-# Pitch: [Game name]
-
-> **What I expect from your game**
-> - **Genre:** hybrid-casual, Android, portrait, played with one thumb. Theme and genre are your choice.
->   Ideas: sort puzzles (Hexa Sort, Water Sort), block puzzles (Block Blast), merge games, one-thumb runners (Subway Surfers), stacking or timing games (Stack), one-thumb action with upgrades (Archero), idle tap games.
-> - **Core loop:** one simple mechanic that is fun in seconds.
-> - **Meta:** a currency and something to spend it on (upgrades, unlocks, a place to build).
-> - **Sessions:** 1–3 minutes.
-> - **Goals:** clear things the player achieves (finish a level, reach a score, unlock an upgrade). Progress you could count.
-> - **Size:** about 3 levels for one person. Bigger team, bigger game: a team of 2–3 builds more (extra levels or an extra system), agreed after the pitch. This is a software engineering course: put your effort into the code, the systems and the data, not into content.
-> - **Look:** placeholder or free art is fine. Fun matters more than looks.
-
-Keep it to one page. Short answers are fine.
+# Pitch: Paw Path
 
 ## Core loop
-What does the player do again and again, with one thumb?
+
+The player uses **one thumb** to swipe and adjust a trajectory/glide path, launching a hungry cat (or dog) toward a delicious food bowl while dodging obstacles like moving room hazards or walls. Success feeds the pet and completes the level in seconds.
 
 ## Meta
-What do they earn, spend and unlock?
+
+Players earn **Fish Treats / Bones** during levels and via level completion bonuses. They spend this currency to unlock and upgrade cute pet skins (hats, costumes) and custom food bowls in their home hub.
 
 ## Why come back?
-Which 2 hooks bring players back tomorrow? (daily reward, streak, event, lives, collection, notification…)
+
+1. **Daily Feeding Streak:** Consecutive daily logins grant bonus treats and rare cosmetic items.
+2. **Pet Collection & Customization:** Unlocking new breeds and outfits gives a clear long-term collecting goal.
 
 ## Who and when
-Who plays it, where, and how long is one session? (target: 1–3 minutes)
+
+* **Who:** Casual gamers and pet lovers looking for quick, satisfying physics-based puzzles.
+* **Where:** On-the-go on Android devices (buses, waiting rooms).
+* **Session length:** 1–3 minutes per session.
 
 ## Goals
-What does the player achieve? List the moments of progress (level completed, upgrade unlocked, new record…).
+
+* Clearing individual levels successfully.
+* Reaching 3-star ratings on stages based on efficiency and treats collected.
+* Unlocking new cosmetic upgrades and pet accessories in the meta shop.
 
 ## Feel
-What will feel "crunchy"? (sound, motion, particles, haptics, timing, numbers)
+
+* **Crunchy elements:** Satisfying arcade sound effects upon launching and landing, vibrant particle bursts (hearts/food crumbs), and subtle haptic feedback on successful catches.
 
 ## Scope check
-- [ ] Hybrid-casual: simple core + a meta layer
-- [ ] Portrait, one thumb
-- [ ] 1–3 minute sessions
-- [ ] Small: about 3 levels (more for a team of 2–3)
+
+* [x] Hybrid-casual: simple physics-swipe core + cosmetic meta layer
+* [x] Portrait, one thumb
+* [x] 1–3 minute sessions
+* [x] Small: ~3 levels initially, focused on robust code and data architecture
