@@ -7,13 +7,13 @@
 Paw Path is a casual physics-based puzzle game where players swipe to launch hungry pets toward food bowls, earn treats, and return daily to unlock new pets and accessories.
 
 ## Milestone 2: Greybox Screens & Android Build
-* **Phone Screen Recording (Home → Level → Home):** [Watch Video](HW2/recording.mp4)
-* **Device Simulator — Notched Phone:** ![Notched Phone](HW2/screenshot_notch.png)
-* **Device Simulator — 16:9 Phone:** ![16:9 Phone](HW2/screenshot_16_9.png)
+* **Phone Screen Recording (Home to Level to Home):** [Watch Video](HW2/Video.mp4)
+* **Device Simulator — Notched Phone (iPhone 13 Pro):** ![Notched Phone](HW2/iphone13pro.png)
+* **Device Simulator — 16:9 Phone (Samsung Galaxy S7):** ![16:9 Phone](HW2/s7.png)
 
 ## How to open and build
 1. Open the project in Unity 6 LTS (`6000.6.7f1`).
-2. File → Build Profiles → Android → Switch Platform.
+2. File -> Build Profiles -> Android -> Switch Platform.
 3. Build and run on an Android phone (Min API 29, IL2CPP + ARM64, Portrait).
 
 ## Repo map
