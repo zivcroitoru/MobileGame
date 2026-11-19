@@ -25,6 +25,12 @@ Players earn **Fish Treats / Bones** during levels and via level completion bonu
 * Reaching 3-star ratings on stages based on efficiency and treats collected.
 * Unlocking new cosmetic upgrades and pet accessories in the meta shop.
 
+## Three Levels
+
+* **Level 1 — Kitchen Counter:** Introduces the one-thumb swipe trajectory arc, a stationary food bowl, and a single bouncy counter ramp to collect three bonus treats in one shot.
+* **Level 2 — Living Room Sofa:** Adds elevated cushion platforms and introduces a **mid-flight tap drop/dash**, letting players alter their arc mid-air to reach higher ledges and thread tight gaps.
+* **Level 3 — Backyard Patio:** Introduces a **sliding garden gate** and a **moving food bowl**, requiring players to time both their launch angle and mid-flight tap to hit a moving target.
+
 ## Feel
 
 * **Crunchy elements:** Satisfying arcade sound effects upon launching and landing, vibrant particle bursts (hearts/food crumbs), and subtle haptic feedback on successful catches.
@@ -33,7 +39,7 @@ Players earn **Fish Treats / Bones** during levels and via level completion bonu
 
 [Gameplay Reference – YouTube](https://youtu.be/L4nJR-gLEaM)
 
-This video serves as the main gameplay reference for Paw Path. The goal is to build on the core mechanic with our own pet theme, level design, and progression systems.
+Beyond the pet theme, **Paw Path** adds a **mid-flight tap trigger** (letting players drop straight down or dash mid-air after launching) and **multi-treat ricochet paths** off household props, turning a single swipe into a two-step timing puzzle to earn 3-star treat ratings.
 
 ## Scope check
 
