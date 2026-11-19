@@ -6,6 +6,13 @@
 ## The game in one sentence
 Paw Path is a casual physics-based puzzle game where players swipe to launch hungry pets toward food bowls, earn treats, and return daily to unlock new pets and accessories.
 
+## Architecture (Milestone 3)
+![Architecture Diagram](docs/architecture.png)
+
+- **Scenes & Build Order:** `Bootstrap` (index 0) → `Home` ↔ `Level` (`ScreenFlow`).
+- **Services & Init Order:** `Bootstrap` initializes `1. Services.Save` (`ISaveService` → `PlayerPrefsSaveService`), then `2. Services.Settings` (`ISettingsService` → `SettingsService`), before loading `Home`.
+- **Assemblies:** `Game` references `Services` and `Unity.TextMeshPro`; `Services` has zero references and never touches `Game`.
+
 ## Milestone 2: Greybox Screens & Android Build
 * **Phone Screen Recording (Home to Level to Home):** [Watch Video](HW2/Video.mp4)
 * **Device Simulator — Notched Phone (iPhone 13 Pro):** ![Notched Phone](HW2/iphone13pro.png)
@@ -20,7 +27,8 @@ Paw Path is a casual physics-based puzzle game where players swipe to launch hun
 
 | File | What it is |
 | --- | --- |
-| `Assets/` | Unity scenes (`Home`, `Level`), scripts (`SafeAreaFitter`, `ScreenFlow`), and prefabs |
+| `Assets/` | Unity scenes (`Bootstrap`, `Home`, `Level`), `Game` & `Services` assemblies, and prefabs |
+| `docs/` | Architecture diagram (`architecture.png`) |
 | `HW2/` | Milestone 2 phone recording and Device Simulator screenshots |
 | `pitch.md` | One-page pitch of the game |
 | `DECISIONS.md` | Development decisions and their reasoning |

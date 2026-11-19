@@ -3,6 +3,13 @@
 Add an entry every time the team makes a real choice: a tool, a design, a trade-off.
 About 1–2 entries a week. Newest at the top. Write the reasoning yourselves; AI may fix the wording.
 
+## 2026-11-19 — Persistence behind ISaveService instead of direct PlayerPrefs
+Options: Direct PlayerPrefs calls in UI/gameplay scripts / Static Save helper class / ISaveService interface + PlayerPrefsSaveService
+Chose: ISaveService interface + PlayerPrefsSaveService
+Why: Keeps screens and gameplay scripts in the Game assembly completely decoupled from storage details in the Services assembly, so we can swap PlayerPrefs for JSON or cloud save later without editing UI code, while guaranteeing init order in Bootstrap.
+AI: reviewed the service structure and refined the wording of this entry.
+Who: Ziv Croitoru
+
 ## 2026-11-12 — Minimum Android API Level 29 (Android 10)
 Options: API 25 (Android 7.1) / API 29 (Android 10) / API 33 (Android 13)
 Chose: API 29 (Android 10)
