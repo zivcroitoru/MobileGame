@@ -13,6 +13,13 @@ Paw Path is a casual physics-based puzzle game where players swipe to launch hun
 - **Services & Init Order:** `Bootstrap` initializes `1. Services.Save` (`ISaveService` → `PlayerPrefsSaveService`), then `2. Services.Settings` (`ISettingsService` → `SettingsService`), before loading `Home`.
 - **Assemblies:** `Game` references `Services` and `Unity.TextMeshPro`; `Services` has zero references and never touches `Game`.
 
+## Milestone 4: Economy
+
+- [Paw Path Economy Sheet](https://docs.google.com/spreadsheets/d/1IdBvFvmOmEKmR6OERU41mmjjL7zqFvws/edit?usp=sharing&ouid=114859143678000248323&rtpof=true&sd=true)
+- **Check 1:** First upgrade within the first session — Yes.
+- **Check 2:** Upgrades 2–4 within 1–3 sessions each — Yes.
+- **Balancing assumption:** 3 wins and 1 loss per session; 130 coins earned per session (no daily gift or consumable sinks implemented yet).
+
 ## Milestone 2: Greybox Screens & Android Build
 * **Phone Screen Recording (Home to Level to Home):** [Watch Video](HW2/Video.mp4)
 * **Device Simulator — Notched Phone (iPhone 13 Pro):** ![Notched Phone](HW2/iphone13pro.png)
