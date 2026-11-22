@@ -874,6 +874,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game::CatRagdoll
   _pelvis: {fileID: 1996814803}
+  _spinMultiplier: 0.65
+  _maxSpinSpeed: 6
 --- !u!1001 &421436976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2253,7 +2255,7 @@ Transform:
   m_GameObject: {fileID: 1627462509}
   serializedVersion: 2
   m_LocalRotation: {x: 0.043619405, y: 0, z: 0, w: 0.9990483}
-  m_LocalPosition: {x: 0.45, y: 2.91, z: -10}
+  m_LocalPosition: {x: 0.45, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2677,9 +2679,15 @@ MonoBehaviour:
   _horizontalImpulse: 15
   _upwardImpulse: 40
   _maxSpeed: 5.5
-  _tapCooldown: 0.26
   _maxUpwardSpeed: 6.8
   _launchSpin: 1.6
+  _tapCooldown: 0.26
+  _minimumSwipeScreenHeight: 0.035
+  _fullPowerSwipeScreenHeight: 0.25
+  _minimumSwipePower: 0.75
+  _maximumSwipePower: 1.5
+  _upSwipeBonus: 0.25
+  _allowTap: 1
 --- !u!1 &1932961700
 GameObject:
   m_ObjectHideFlags: 0
