@@ -1,17 +1,27 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// The only script in the Bootstrap scene, the first scene in the Scene List.
 public class Bootstrap : MonoBehaviour
 {
-    void Awake()
+    [SerializeField]
+    private EconomyConfig economyConfig;
+
+    private void Awake()
     {
-        DontDestroyOnLoad(gameObject); // Services survives every scene change
-        
-        Services.Save = new PlayerPrefsSaveService();         // 1 · save
-        Services.Settings = new SettingsService(Services.Save); // 2 · settings
+        if (economyConfig == null)
+        {
+            Debug.LogError("Bootstrap: EconomyConfig is missing!");
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+
+        // Initialize services in dependency order.
+        Services.Save = new PlayerPrefsSaveService();
+        Services.Config = new ConfigService(economyConfig);
+        Services.Settings = new SettingsService(Services.Save);
 
         Debug.Log("Bootstrap: services ready");
-        SceneManager.LoadScene("Home"); // only now: the first screen
+        SceneManager.LoadScene("Home");
     }
 }
