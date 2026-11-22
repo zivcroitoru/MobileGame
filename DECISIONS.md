@@ -3,6 +3,12 @@
 Add an entry every time the team makes a real choice: a tool, a design, a trade-off.
 About 1–2 entries a week. Newest at the top. Write the reasoning yourselves; AI may fix the wording.
 
+## 2026-11-22 — Milestone 4 UI integration
+
+- Home and Level use the same safe-area canvas code, button styles, and imported sprites.
+- Next Level increments saved progression and reuses the existing Level scene. Retry keeps the current level number.
+- The Unity 6.6 Android launcher icon uses separate adaptive foreground and background textures.
+
 ## 2026-11-19 — Persistence behind ISaveService instead of direct PlayerPrefs
 Options: Direct PlayerPrefs calls in UI/gameplay scripts / Static Save helper class / ISaveService interface + PlayerPrefsSaveService
 Chose: ISaveService interface + PlayerPrefsSaveService

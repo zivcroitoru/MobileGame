@@ -1,18 +1,31 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// Put it on an empty GameObject in each scene, e.g. one called "ScreenFlow".
 public class ScreenFlow : MonoBehaviour
 {
-    public void Play()                     // Play button → On Click () → ScreenFlow.Play
+    public const string UnlockedLevelKey = "unlocked_level";
+
+    public static int CurrentLevel { get; private set; } = 1;
+    public static int UnlockedLevel => Mathf.Max(1, Services.Save.GetInt(UnlockedLevelKey, 1));
+
+    private bool _loading;
+
+    public void Play() => LoadLevel(UnlockedLevel);
+    public void Retry() => LoadLevel(CurrentLevel);
+    public void NextLevel() => LoadLevel(Mathf.Min(CurrentLevel + 1, UnlockedLevel));
+    public void Back() => Load("Home");
+
+    private void LoadLevel(int level)
     {
-        SceneManager.LoadScene("Level");   // the exact scene name
+        if (_loading) return;
+        CurrentLevel = level;
+        Load("Level");
     }
 
-    public void Back()                     // Back button → On Click () → ScreenFlow.Back
+    private void Load(string scene)
     {
-        SceneManager.LoadScene("Home");
+        if (_loading) return;
+        _loading = true;
+        SceneManager.LoadScene(scene);
     }
 }
-
-// Both scenes must be in File → Build Profiles → Scene List. The first one opens on the phone.

@@ -10,10 +10,16 @@ Paw Path is a casual physics-based puzzle game where players swipe to launch hun
 ![Architecture Diagram](docs/architecture.png)
 
 - **Scenes & Build Order:** `Bootstrap` (index 0) → `Home` ↔ `Level` (`ScreenFlow`).
-- **Services & Init Order:** `Bootstrap` initializes `1. Services.Save` (`ISaveService` → `PlayerPrefsSaveService`), then `2. Services.Settings` (`ISettingsService` → `SettingsService`), before loading `Home`.
-- **Assemblies:** `Game` references `Services` and `Unity.TextMeshPro`; `Services` has zero references and never touches `Game`.
+- **Services & Init Order:** `Bootstrap` initializes `1. Services.Save` (`ISaveService` → `PlayerPrefsSaveService`), then `2. Services.Config` (`ConfigService` with `EconomyConfig`), then `3. Services.Settings` (`ISettingsService` → `SettingsService`), before loading `Home`.
+- **Assemblies:** `Game` references `Services`, `Unity.TextMeshPro`, and `Unity.InputSystem`; `Services` has zero references and never touches `Game`.
 
-## Milestone 4: Economy
+## Milestone 4: UI and economy
+
+- Enter Play Mode from `Assets/Scenes/Bootstrap.unity`. Home opens with Play, Upgrades, the saved coin balance and an audio toggle.
+- The HUD shows the saved wallet and furthest horizontal progress toward the course goal. Pause offers Resume, Retry and Home.
+- The reward boost adds coins to each win. Prices and reward values come from `Assets/Settings/EconomyConfig.asset`. Coin balances and purchases use the existing save service.
+- Reaching the goal opens Level Complete and awards the run's coins once. Retry starts another attempt at the same level number. Next Level starts the next numbered run of the current course, which is the only course in the build. Home's Play starts the highest unlocked number.
+- Home, the HUD and dialog controls use a 1080 × 1920 uGUI reference canvas and follow the device safe area. See [asset credits](CREDITS.md) for the imported artwork and adaptive launcher icon.
 
 - [Paw Path Economy Sheet](https://docs.google.com/spreadsheets/d/1IdBvFvmOmEKmR6OERU41mmjjL7zqFvws/edit?usp=sharing&ouid=114859143678000248323&rtpof=true&sd=true)
 - **Check 1:** First upgrade within the first session — Yes.

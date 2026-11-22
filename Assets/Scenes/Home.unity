@@ -1100,6 +1100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7387943024327407444, guid: 33b03075fc86389469becc73bad0ff8f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9106381185366036654, guid: 33b03075fc86389469becc73bad0ff8f, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1209,6 +1213,59 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b698b504c85b4b4f8e72403045258f6, type: 3}
+--- !u!1 &827440001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 827440002}
+  - component: {fileID: 827440003}
+  - component: {fileID: 827440004}
+  m_Layer: 0
+  m_Name: Paw Path UI
+  m_TagString: Untagged
+  m_IsActive: 1
+--- !u!4 &827440002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827440001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &827440003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827440001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dbe9b54b350c064fbd48e649a6fe935, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Game::ScreenFlow
+--- !u!114 &827440004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827440001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e87f2e1c0614676a65ef088a35bda01, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Game::PawPathUI
+  _goal: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1218,3 +1275,4 @@ SceneRoots:
   - {fileID: 2255699361688381941}
   - {fileID: 60175890}
   - {fileID: 4021659062685802521}
+  - {fileID: 827440002}
