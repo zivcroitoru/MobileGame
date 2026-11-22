@@ -3,16 +3,17 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class CatRagdoll : MonoBehaviour
 {
+    [SerializeField] private Rigidbody _pelvis;
+
     private Collider[] _colliders;
 
-    public float TotalMass { get; private set; }
+    public Rigidbody Pelvis => _pelvis;
 
     private void Awake()
     {
         _colliders = GetComponentsInChildren<Collider>();
         foreach (var body in GetComponentsInChildren<Rigidbody>())
         {
-            TotalMass += body.mass;
             body.solverIterations = 20;
             body.solverVelocityIterations = 8;
             body.maxDepenetrationVelocity = 2.5f;

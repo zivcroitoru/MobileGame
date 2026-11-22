@@ -4,7 +4,7 @@ AI tools read this file before working on the repo. Keep it short, true and up t
 If you use Claude Code, also add a `CLAUDE.md` containing one line: `@AGENTS.md`.
 
 ## The game
-**Paw Path** is a 3D casual mobile pet-feeding game built for Android in portrait mode with one-thumb tap controls. Players tap to guide/spawn items in levels, earn coins, and return to the Home screen where coins and audio settings persist across sessions.
+**Paw Path** is a 2.5D side-scrolling physics game built for Android in portrait mode. One-thumb taps push a ragdoll cat to the right. Players earn coins and return to Home, where coins and audio settings persist across sessions.
 
 ## Tech
 - Engine: Unity 6 LTS, C#
@@ -17,7 +17,7 @@ If you use Claude Code, also add a `CLAUDE.md` containing one line: `@AGENTS.md`
 - **Init Order:** `Bootstrap.Awake()` marks itself `DontDestroyOnLoad`, initializes `Services.Save = new PlayerPrefsSaveService()` first, then `Services.Settings = new SettingsService(Services.Save)`, and loads `Home`[cite: 2].
 - **Assemblies:** Two assembly definitions under `Assets/Scripts/`:
   - `Services` (`Assets/Scripts/Services/Services.asmdef`): service interfaces, implementations, and static `Services` locator; zero external assembly references.
-  - `Game` (`Assets/Scripts/Game/Game.asmdef`): `Bootstrap`, screen navigation, gameplay, and UI scripts; references `Services` and `Unity.TextMeshPro`.
+  - `Game` (`Assets/Scripts/Game/Game.asmdef`): `Bootstrap`, screen navigation, gameplay, and UI scripts; references `Services`, `Unity.TextMeshPro`, and `Unity.InputSystem`.
 
 ## Rules for AI
 - Follow the existing folder structure and naming. Don't create new top-level folders[cite: 12].
@@ -29,5 +29,5 @@ If you use Claude Code, also add a `CLAUDE.md` containing one line: `@AGENTS.md`
 - Never commit secrets (keystores, passwords, API keys)[cite: 12].
 
 ## Conventions
-- **Folder layout:** Service contracts (`I*Service.cs`), implementations, and `Services.cs` live in `Assets/Scripts/Services/`; all scene, UI, and gameplay `MonoBehaviour` scripts (`Bootstrap`, `ScreenFlow`, `SoundToggleButton`, `CoinCounter`, `SafeAreaFitter`, `TapSpawner`, `TapToMove3D`) live in `Assets/Scripts/Game/`.
+- **Folder layout:** Service contracts (`I*Service.cs`), implementations, and `Services.cs` live in `Assets/Scripts/Services/`; all scene, UI, and gameplay `MonoBehaviour` scripts (`Bootstrap`, `ScreenFlow`, `SoundToggleButton`, `CoinCounter`, `SafeAreaFitter`, `CatRagdoll`, `TapToPush3D`, `SideScrollCamera`) live in `Assets/Scripts/Game/`.
 - **Naming:** PascalCase for classes, interfaces (`I` prefix), public methods, and properties; camelCase with `_` prefix for private fields.
