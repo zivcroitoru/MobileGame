@@ -8,25 +8,31 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CatRagdoll))]
 public class TapToPush3D : MonoBehaviour
 {
-    [SerializeField, Min(0f), Tooltip("Rightward impulse in newton-seconds.")]
-    private float _horizontalImpulse = 11f;
+    [SerializeField, Min(0f), Tooltip("Horizontal impulse in newton-seconds.")]
+    private float _horizontalImpulse = 15f;
     [SerializeField, Min(0f), Tooltip("Upward impulse in newton-seconds.")]
-    private float _upwardImpulse = 4.8f;
-    [SerializeField, Min(0.01f), Tooltip("Rightward pelvis speed limit for tap impulses, in metres per second.")]
-    private float _maxSpeed = 8.5f;
-    [SerializeField, Min(0f)] private float _tapCooldown = 0.22f;
+    private float _upwardImpulse = 40f;
+    [SerializeField, Min(0.01f), Tooltip("Horizontal ragdoll speed limit for launch impulses, in metres per second.")]
+    private float _maxSpeed = 5.5f;
+    [SerializeField, Min(0f)] private float _tapCooldown = 0.26f;
+
+    [SerializeField, Min(0.01f)] private float _maxUpwardSpeed = 6.8f;
+    [SerializeField, Min(0f), Tooltip("Additional roll speed per boost, in radians per second.")]
+    private float _launchSpin = 1.6f;
 
     private readonly List<RaycastResult> _uiHits = new();
     private PointerEventData _pointer;
-    private Rigidbody _pelvis;
+    private CatRagdoll _ragdoll;
     private double _nextPushTime;
-    private bool _pushQueued;
+    private float _queuedDirection;
+
+    public float LaunchDirection { get; private set; } = 1f;
 
     private void Awake()
     {
-        _pelvis = GetComponent<CatRagdoll>().Pelvis;
+        _ragdoll = GetComponent<CatRagdoll>();
 
-        if (_pelvis == null)
+        if (_ragdoll.Pelvis == null)
         {
             Debug.LogError("Tap To Push needs a pelvis Rigidbody on the ragdoll.", this);
             enabled = false;
@@ -35,7 +41,7 @@ public class TapToPush3D : MonoBehaviour
 
     private void OnDisable()
     {
-        _pushQueued = false;
+        _queuedDirection = 0f;
     }
 
     private void Update()
@@ -53,12 +59,12 @@ public class TapToPush3D : MonoBehaviour
 
     private void QueuePush(Vector2 position)
     {
-        if (_pushQueued || Time.timeAsDouble < _nextPushTime)
+        if (_queuedDirection != 0f || Time.timeAsDouble < _nextPushTime)
             return;
 
         var screen = new Rect(0f, 0f, Screen.width, Screen.height);
         if (screen.Contains(position) && !IsOverInteractiveUI(position))
-            _pushQueued = true;
+            _queuedDirection = position.x < screen.center.x ? -1f : 1f;
     }
 
     private bool IsOverInteractiveUI(Vector2 position)
@@ -84,15 +90,12 @@ public class TapToPush3D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_pushQueued)
+        if (_queuedDirection == 0f)
             return;
 
-        _pushQueued = false;
+        LaunchDirection = _queuedDirection;
+        _queuedDirection = 0f;
         _nextPushTime = Time.timeAsDouble + _tapCooldown;
-
-        // Cap the immediate velocity change using the mass that receives the impulse.
-        float speedHeadroom = Mathf.Max(0f, _maxSpeed - _pelvis.linearVelocity.x);
-        float horizontal = Mathf.Min(_horizontalImpulse, _pelvis.mass * speedHeadroom);
-        _pelvis.AddForce(new Vector3(horizontal, _upwardImpulse, 0f), ForceMode.Impulse);
+        _ragdoll.Launch(LaunchDirection, _horizontalImpulse, _upwardImpulse, _maxSpeed, _maxUpwardSpeed, _launchSpin);
     }
 }

@@ -4,7 +4,7 @@ AI tools read this file before working on the repo. Keep it short, true and up t
 If you use Claude Code, also add a `CLAUDE.md` containing one line: `@AGENTS.md`.
 
 ## The game
-**Paw Path** is a 2.5D side-scrolling physics game built for Android in portrait mode. One-thumb taps push a ragdoll cat to the right. Players earn coins and return to Home, where coins and audio settings persist across sessions.
+**Paw Path** is a 2.5D side-scrolling physics game built for Android in portrait mode. One-thumb taps launch a ragdoll cat up-left or up-right through an obstacle course. Players earn coins and return to Home, where coins and audio settings persist across sessions.
 
 ## Tech
 - Engine: Unity 6 LTS, C#
