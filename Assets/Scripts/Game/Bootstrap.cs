@@ -8,6 +8,9 @@ public class Bootstrap : MonoBehaviour
 
     private void Awake()
     {
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 60;
+
         if (economyConfig == null)
         {
             Debug.LogError("Bootstrap: EconomyConfig is missing!");
