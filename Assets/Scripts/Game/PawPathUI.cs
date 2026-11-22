@@ -24,6 +24,7 @@ public class PawPathUI : MonoBehaviour
     private ScreenFlow _flow;
     private RectTransform _canvas;
     private RectTransform _safeArea;
+    private CanvasGroup _screenInput;
     private RectTransform _modal;
     private CoinCounter _coins;
     private TapToPush3D _push;
@@ -61,6 +62,7 @@ public class PawPathUI : MonoBehaviour
         }
 
         _safeArea = SafeArea(_canvas);
+        _screenInput = _safeArea.gameObject.AddComponent<CanvasGroup>();
         if (_goal == null)
             BuildHome();
         else
@@ -232,7 +234,12 @@ public class PawPathUI : MonoBehaviour
 
     private RectTransform Modal(string title, float height)
     {
+        _screenInput.blocksRaycasts = false;
         _modal = Stretch(title + " Overlay", _canvas);
+        var modalCanvas = _modal.gameObject.AddComponent<Canvas>();
+        modalCanvas.overrideSorting = true;
+        modalCanvas.sortingOrder = 10;
+        _modal.gameObject.AddComponent<GraphicRaycaster>();
         var dimmer = Picture(Stretch("Dimmer", _modal), null, new Color32(16, 22, 54, 190));
         dimmer.raycastTarget = true;
         var area = SafeArea(_modal);
@@ -247,6 +254,7 @@ public class PawPathUI : MonoBehaviour
         _modal.gameObject.SetActive(false);
         Destroy(_modal.gameObject);
         _modal = null;
+        _screenInput.blocksRaycasts = true;
     }
 
     private static RectTransform SafeArea(RectTransform parent)
