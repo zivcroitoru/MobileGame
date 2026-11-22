@@ -3,11 +3,18 @@
 Add an entry every time the team makes a real choice: a tool, a design, a trade-off.
 About 1–2 entries a week. Newest at the top. Write the reasoning yourselves; AI may fix the wording.
 
-## 2026-11-22 — Milestone 4 UI integration
+## 2026-11-22 — Milestone 4 UI artwork and flow
 
+Options: AI-generated artwork / Draw all UI assets ourselves / Use free, licensed asset packs.
+Chose: Free, licensed sprites (mainly Kenney UI and icons, plus the pzUH cat sprite), with a shared uGUI style and safe-area layout for Home and Level.
+Why: Keeps the game visually consistent, saves time for gameplay and Android testing, avoids AI-generated artwork, and allows the team to document asset sources and licenses in CREDITS.md.
+AI: Helped plan and review the UI integration; the choice to use existing free assets rather than AI-generated visuals was made by the developer.
+Who: Ziv Croitoru
+
+Implementation notes:
 - Home and Level use the same safe-area canvas code, button styles, and imported sprites.
 - Next Level increments saved progression and reuses the existing Level scene. Retry keeps the current level number.
-- The Unity 6.6 Android launcher icon uses separate adaptive foreground and background textures.
+- The Android launcher icon uses separate adaptive foreground and background textures.
 
 ## 2026-11-19 — Persistence behind ISaveService instead of direct PlayerPrefs
 Options: Direct PlayerPrefs calls in UI/gameplay scripts / Static Save helper class / ISaveService interface + PlayerPrefsSaveService
